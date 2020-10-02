@@ -13,14 +13,10 @@ body {
   background-attachment: fixed;
 }
 
-.container {
-  margin: 0 auto;
-  max-width: 100%;
-}
-
 .main-content {
   display: flex;
   flex-direction: column;
+  margin: auto;
 }
 
 .main-content > .row {
@@ -33,8 +29,28 @@ body {
   text-align: center;
   width: 100%;
 }
+
 .volume {
-  display: flex;
+  display: none;
+}
+
+#progress-bar {
+  background: black;
+  height: 10px;
+  margin: 2em auto;
+  position: absolute;
+  max-width: 90vw;
+}
+
+#progress-pin {
+  background: black;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
 }
 
 ion-icon {
@@ -71,6 +87,7 @@ ion-icon {
 
   .volume {
     align-self: stretch;
+    display: block;
   }
 
   .volume-rail {
@@ -147,6 +164,11 @@ ion-icon {
   #track-title,
   #error {
     margin-top: 5em;
+  }
+
+  #track-title > span,
+  #track-title > strong {
+    display: block;
   }
 
   /*** Typograpgy ****/

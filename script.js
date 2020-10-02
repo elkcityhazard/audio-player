@@ -7,7 +7,6 @@ const knob = document.querySelector(".volume-knob");
 const knobSlider = document.querySelector(".volume-rail");
 
 function dragstart_handler(ev) {
-  // ev.preventDefault();
   ev.dataTransfer.setData("text/html", ev.target.id);
   ev.dataTransfer.dropEffect = "move";
   console.log("holding");
@@ -19,7 +18,6 @@ function dragover_handler(ev) {
 }
 
 function drop_handler(ev) {
-  console.log(volumeData(ev));
   ev.preventDefault();
   const data = ev.dataTransfer.getData("text/html", ev.target.id);
   ev.target.appendChild(knob);
@@ -30,10 +28,9 @@ function drop_handler(ev) {
 }
 
 function dragstart_handler2(ev) {
-  // ev.preventDefault();
+  ev.preventDefault();
   ev.dataTransfer.setData("text/html", ev.target.id);
   ev.dataTransfer.dropEffect = "move";
-  console.log("holding 2");
 }
 
 function dragover_handler2(ev) {
@@ -49,7 +46,6 @@ function drop_handler2(ev) {
   let position = audioPosition(ev);
   document.getElementById("progress-pin").style.left = position + "px";
   player.currentTime = player.duration * (position.position / position.width);
-  console.log("dropping 2");
 }
 
 function trackForward() {
@@ -126,7 +122,6 @@ function stopFile() {
 let volumeData = function (e) {
   let y = e.offsetY;
   let height = knobSlider.getBoundingClientRect().height;
-  console.log(`Y: ${y} Height: ${height}`);
   return {
     position: y,
     height: height,
@@ -152,12 +147,10 @@ let volume = knobSlider.addEventListener("mouseover", volumeData);
 knobSlider.addEventListener("click", (e) => {
   let y = e.offsetY;
   let height = knobSlider.getBoundingClientRect().height;
-  console.log(`Y: ${y} Height: ${height}`);
   e.preventDefault();
   e.target.appendChild(knob);
   knob.style.top = y + "px";
   player.volume = (height - y) / height;
-  console.log("dropping");
 });
 
 document.getElementById("progress-bar").addEventListener("click", (e) => {
