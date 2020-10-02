@@ -1,0 +1,158 @@
+html,
+body {
+  color: #000;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 600;
+}
+
+body {
+  background: #fff;
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content > .row {
+  display: flex;
+  flex-direction: row;
+  margin: 1em auto;
+}
+
+.main-content > .row .col {
+  text-align: center;
+  width: 100%;
+}
+.volume {
+  display: flex;
+}
+
+ion-icon {
+  font-size: 4em;
+}
+
+@media screen and (min-width: 968px) {
+  html,
+  body {
+    color: #000;
+    font-family: "Source Code Pro", monospace;
+    font-weight: 600;
+  }
+
+  body {
+    background: #fff;
+    background-position: center;
+    background-repeat: none;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .container {
+    margin: 0 auto;
+    max-width: 968px;
+  }
+
+  .row {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .volume {
+    align-self: stretch;
+  }
+
+  .volume-rail {
+    background-color: black;
+    padding: -1em;
+    margin: 0 auto;
+    width: 10px;
+    height: 100%;
+    position: relative;
+  }
+
+  .volume-knob {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid black;
+    background: black;
+  }
+  .block {
+    display: block !important;
+    width: 100%;
+  }
+
+  .col {
+    display: flex;
+  }
+
+  .col:nth-child(2) {
+    display: flex;
+    background-color: transparent;
+    min-height: 250px;
+    min-width: 250px;
+  }
+
+  #progress-bar {
+    display: inline-block;
+    height: 5px;
+    width: 0;
+    background-color: black;
+    transition: 500ms ease;
+    position: relative;
+  }
+
+  #progress-pin {
+    background: black;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  }
+
+  #play,
+  #reverse,
+  #forward {
+    transition: 250ms ease-in-out;
+  }
+
+  #play:active,
+  #play:hover,
+  #reverse:active,
+  #reverse:hover,
+  #forward:active,
+  #forward:hover {
+    transform: scale(1.5);
+  }
+
+  #track-title,
+  #error {
+    margin-top: 5em;
+  }
+
+  /*** Typograpgy ****/
+
+  ion-icon {
+    font-size: 5em;
+    margin: auto;
+  }
+}

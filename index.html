@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" description="Andrew M McCall" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Player</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <header class="main-header">
+          <h1>Junior Byles - Beat Down Babylon</h1>
+        </header>
+      </div>
+      <!-- End Of Row  -->
+      <div class="row">
+        <aside class="volume" aria-label="audio controls">
+          <div
+            id="knobSlider"
+            class="volume-rail"
+            ondrop="drop_handler(event)"
+            ondragover="dragover_handler(event)"
+          >
+            <div
+              id="knob"
+              class="volume-knob"
+              draggable="true"
+              ondragstart="dragstart_handler(event)"
+            ></div>
+          </div>
+        </aside>
+        <main class="main-content">
+          <div class="row">
+            <div class="col" aria-label="navigation">
+              <ion-icon id="reverse" name="chevron-back-outline"></ion-icon>
+            </div>
+            <div class="col" aria-label="audio">
+              <ion-icon id="play" name="caret-forward-outline">
+                <audio id="player" autoplay="true"></audio>
+              </ion-icon>
+            </div>
+            <div class="col" aria-label="navigation">
+              <ion-icon id="forward" name="chevron-forward-outline"></ion-icon>
+            </div>
+          </div>
+          <!-- end of row -->
+        </main>
+        <!-- End Of Main Content -->
+      </div>
+      <!-- end of row-->
+      <div class="row">
+        <section id="track-title" class="track-info"></section>
+      </div>
+      <!-- end of row-->
+      <div class="row">
+        <section id="error"></section>
+      </div>
+      <!-- end of row-->
+      <div class="row block">
+        <div
+          id="progress-bar"
+          ondrop="drop_handler2(event)"
+          ondragover="dragover_handler2(event)"
+        >
+          <div
+            id="progress-pin"
+            draggable="true"
+            ondragstart="dragstart_handler2(event)"
+          ></div>
+        </div>
+      </div>
+      <!-- end of row -->
+    </div>
+    <!-- end of container-->
+    <span style="position: absolute; left: 1em; bottom: 1em"
+      >brought to you by:
+      <a href="https://andrew-mccall.com">Andrew M McCall</a></span
+    >
+    <!-- Scripts Here -->
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+  </body>
+</html>
