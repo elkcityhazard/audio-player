@@ -53,6 +53,11 @@ body {
   border-radius: 50%;
 }
 
+#track-title > span,
+#track-title > strong {
+  display: block;
+}
+
 ion-icon {
   font-size: 4em;
 }
@@ -168,7 +173,7 @@ ion-icon {
 
   #track-title > span,
   #track-title > strong {
-    display: block;
+    display: inline;
   }
 
   /*** Typograpgy ****/
