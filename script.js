@@ -159,3 +159,10 @@ knobSlider.addEventListener("click", (e) => {
   player.volume = (height - y) / height;
   console.log("dropping");
 });
+
+document.getElementById("progress-bar").addEventListener("click", (e) => {
+  let x = e.offsetX;
+  let width = e.target.getBoundingClientRect().width;
+  document.getElementById("progress-pin").style.left = x + "px";
+  player.currentTime = player.duration * (x / width);
+});
