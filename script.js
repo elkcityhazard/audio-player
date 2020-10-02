@@ -54,15 +54,16 @@ function drop_handler2(ev) {
 
 function trackForward() {
   counter++;
-  playFile();
+  return playFile();
 }
 
 function trackReverse() {
   counter--;
-  playFile();
+  return playFile();
 }
 
-function progress() {
+async function progress() {
+  const runTime = player.duration;
   let value;
   let progressBar = document.getElementById("progress-bar");
   let progressPin = document.getElementById("progress-pin");
@@ -70,20 +71,21 @@ function progress() {
   if (player.currentTime > 0) {
     value = Math.floor((100 / player.duration) * player.currentTime);
   }
-  if (player.currentTime === player.duration) {
-    counter = counter + 1;
-    return playFile();
+  if (player.currentTime >= player.duration) {
+    counter++;
+    await playFile();
   }
   // progressBar.style.width = value + "%";
   progressPin.style.left = 0 + "px";
   progressPin.style.left = value + "%";
 }
 
-function playFile() {
+async function playFile() {
+  player.currentTime = 0;
   console.log("playing");
   playButton.removeEventListener("click", playFile);
   playButton.addEventListener("click", stopFile);
-  fetch("./tracks.json")
+  await fetch("./tracks.json")
     .then((response) => response.json())
     .then((data) => {
       if (counter < 0) {
@@ -98,6 +100,7 @@ function playFile() {
         throw new Error("last Track");
       }
       if (counter >= data.length && player.currentTime === player.duration) {
+        playButton.name = "play-outline";
         counter = 0;
         return stopFile();
       }
@@ -146,3 +149,13 @@ reverseButton.addEventListener("click", trackReverse);
 player.addEventListener("timeupdate", progress, false);
 knob.addEventListener("dragstart", dragstart_handler);
 let volume = knobSlider.addEventListener("mouseover", volumeData);
+knobSlider.addEventListener("click", (e) => {
+  let y = e.offsetY;
+  let height = knobSlider.getBoundingClientRect().height;
+  console.log(`Y: ${y} Height: ${height}`);
+  e.preventDefault();
+  e.target.appendChild(knob);
+  knob.style.top = y + "px";
+  player.volume = (height - y) / height;
+  console.log("dropping");
+});
