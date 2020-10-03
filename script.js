@@ -57,8 +57,12 @@ function trackForward() {
 }
 
 function trackReverse() {
-  counter--;
-  return playFile();
+  if (player.currentTime >= 10) {
+    player.currentTime = 0;
+  } else {
+    counter--;
+    return playFile();
+  }
 }
 
 async function progress() {
