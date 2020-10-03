@@ -32,6 +32,7 @@ function dragstart_handler2(ev) {
   ev.preventDefault();
   ev.dataTransfer.setData("text/html", ev.target.id);
   ev.dataTransfer.dropEffect = "move";
+  console.log("drag");
 }
 
 function dragover_handler2(ev) {
@@ -45,8 +46,9 @@ function drop_handler2(ev) {
   const data = ev.dataTransfer.getData("text/html", ev.target.id);
   ev.target.appendChild(document.getElementById("progress-pin"));
   let position = audioPosition(ev);
-  document.getElementById("progress-pin").style.left = position + "px";
+  document.getElementById("progress-pin").style.left = position.position + "px";
   player.currentTime = player.duration * (position.position / position.width);
+  console.log("drop2");
 }
 
 function trackForward() {
@@ -155,9 +157,6 @@ forwardButton.addEventListener("click", trackForward);
 reverseButton.addEventListener("click", trackReverse);
 player.addEventListener("timeupdate", progress, false);
 knob.addEventListener("dragstart", dragstart_handler);
-document
-  .getElementById("progress-bar")
-  .addEventListener("dragstart", dragstart_handler2);
 let volume = knobSlider.addEventListener("mouseover", volumeData);
 knobSlider.addEventListener("click", (e) => {
   let y = e.offsetY;
