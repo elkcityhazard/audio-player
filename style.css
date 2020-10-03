@@ -7,16 +7,50 @@ body {
 
 body {
   background: #fff;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75)),
+    url("/assets/images/background.jpg");
   background-position: center;
-  background-repeat: none;
+  background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+
+.container {
+  padding-top: 25vh;
+}
+
+.row {
+  text-align: center;
 }
 
 .main-content {
   display: flex;
   flex-direction: column;
   margin: auto;
+}
+
+.main-header > h1 {
+  font-size: 2em;
+  text-align: center;
+}
+
+h1,
+h2 {
+  color: #fdda24;
+}
+
+h1 + h2 {
+  text-align: center;
+}
+
+strong {
+  text-align: center;
+  color: #fdda24;
+}
+
+strong + span {
+  text-align: center;
+  color: #fdda24;
 }
 
 .main-content > .row {
@@ -35,7 +69,8 @@ body {
 }
 
 #progress-bar {
-  background: black;
+  background: #b4e0ae;
+  border-radius: 10px;
   height: 10px;
   margin: 2em auto;
   position: absolute;
@@ -43,7 +78,8 @@ body {
 }
 
 #progress-pin {
-  background: black;
+  display: none;
+  background: #f46e39;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -53,13 +89,27 @@ body {
   border-radius: 50%;
 }
 
-#track-title > span,
-#track-title > strong {
-  display: block;
+.track-title > span,
+.track-title > strong {
+  display: inline;
+  margin-left: 1em;
+  text-align: center;
 }
 
 ion-icon {
   font-size: 4em;
+}
+
+#reverse {
+  color: #000;
+}
+
+#play {
+  color: #009639;
+}
+
+#forward {
+  color: #fdda24;
 }
 
 @media screen and (min-width: 968px) {
@@ -80,7 +130,7 @@ ion-icon {
 
   .container {
     margin: 0 auto;
-    max-width: 968px;
+    max-width: 375px;
   }
 
   .row {

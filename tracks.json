@@ -3,66 +3,77 @@
     "id": "0",
     "title": "Don't Know Why",
     "artist": "Junior Byles",
+    "album": "Beat Down Babylon",
     "src": "./assets/audio/dont-know-why.mp3"
   },
   {
     "id": "1",
     "title": "Fun And Games",
     "artist": "Junior Byles",
+    "album": "Beat Down Babylon",
     "src": "./assets/audio/fun-and-games.mp3"
   },
   {
     "id": "2",
     "title": "Joshua's Desires",
     "artist": "Junior Byles",
+    "album": "Beat Down Babylon",
     "src": "./assets/audio/joshuas-desires.mp3"
   },
   {
     "id": "4",
     "title": "Pretty Fe True Dub",
     "artist": "Junior Byles",
+    "album": "Beat Down Babylon",
     "src": "./assets/audio/pretty-fe-true-dub.mp3"
   },
   {
     "id": "5",
     "title": "Pharoah Hiding",
     "artist": "Junior Byles",
+    "album": "Beat Down Babylon",
     "src": "./assets/audio/pharaoh-hiding.mp3"
   },
   {
     "id": "6",
     "title": "Hail To Power",
     "artist": "Junior Byles",
+    "album": "Beat Down Babylon",
     "src": "./assets/audio/15 Hail To Power.mp3"
   },
   {
     "id": "7",
     "title": "Auntie Lulu",
     "artist": "Junior Byles",
+    "album": "Beat Down Babylon",
     "src": "./assets/audio/17 Auntie Lulu.mp3"
   },
   {
     "id": "8",
     "title": "The Thanks We Get",
     "artist": "Junior Byles",
+    "album": "Beat Down Babylon",
     "src": "./assets/audio/19 The Thanks We Get.mp3"
   },
   {
     "id": "9",
     "title": "Mumbling & Grumbling",
     "artist": "Junior Byles",
+    "album": "Beat Down Babylon",
     "src": "./assets/audio/20 Mumbling And Grumbling.mp3"
   },
   {
     "id": "10",
     "title": "Dreader Locks",
     "artist": "Junior Byles",
+    "album": "Beat Down Babylon",
     "src": "./assets/audio/22 Dreader Locks.mp3"
   },
   {
     "id": "11",
     "title": "The Long Way",
     "artist": "Junior Byles",
+    "album": "Beat Down Babylon",
     "src": "./assets/audio/23 The Long Way.mp3"
   }
 ]

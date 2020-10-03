@@ -5,6 +5,7 @@ const reverseButton = document.getElementById("reverse");
 const player = document.querySelector("audio");
 const knob = document.querySelector(".volume-knob");
 const knobSlider = document.querySelector(".volume-rail");
+let getCurrentTime = 0;
 
 function dragstart_handler(ev) {
   ev.dataTransfer.setData("text/html", ev.target.id);
@@ -72,12 +73,15 @@ async function progress() {
     await playFile();
   }
   // progressBar.style.width = value + "%";
+  progressPin.style.display = "initial";
   progressPin.style.left = 0 + "px";
   progressPin.style.left = value + "%";
 }
 
 async function playFile() {
-  player.currentTime = 0;
+  getCurrentTime > 0
+    ? (player.currentTime = getCurrentTime)
+    : (player.currentTime = 0);
   console.log("playing");
   playButton.removeEventListener("click", playFile);
   playButton.addEventListener("click", stopFile);
@@ -100,11 +104,18 @@ async function playFile() {
         counter = 0;
         return stopFile();
       }
+      document.getElementById("artist").textContent = data[counter].artist;
+      document.getElementById("album").textContent = data[counter].album;
+
       document.getElementById("player").src = data[counter].src;
       document.getElementById("track-title").innerHTML = `
-        <strong>Artist: </strong> <span>${data[counter].artist}</span>
-        <strong>Title: </strong> <span>${data[counter].title}</span>
-        <strong>Track &#35;: </strong> <span>${counter + 1}</span>`;
+      <div class="row"><strong class="track-title">Title: </strong> <span>${
+        data[counter].title
+      }</span></div>
+          <div class="row"><strong class="track-title">Track &#35;: </strong> <span>${
+            counter + 1
+          }</span></div>
+          `;
       document.getElementById("error").innerText = "";
       playButton.name = "pause-outline";
       return data;
@@ -114,6 +125,7 @@ async function playFile() {
 function stopFile() {
   console.log("stopped");
   playButton.name = `play-outline`;
+  getCurrentTime = player.currentTime;
   player.src = "";
   playButton.removeEventListener("click", stopFile);
   playButton.addEventListener("click", playFile);
@@ -143,6 +155,9 @@ forwardButton.addEventListener("click", trackForward);
 reverseButton.addEventListener("click", trackReverse);
 player.addEventListener("timeupdate", progress, false);
 knob.addEventListener("dragstart", dragstart_handler);
+document
+  .getElementById("progress-bar")
+  .addEventListener("dragstart", dragstart_handler2);
 let volume = knobSlider.addEventListener("mouseover", volumeData);
 knobSlider.addEventListener("click", (e) => {
   let y = e.offsetY;
